@@ -386,7 +386,10 @@ export function stylefunction(
         olLayer.changed();
         img.onload = null;
       };
-    } else if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) { //eslint-disable-line
+    } else if (
+      typeof WorkerGlobalScope !== 'undefined' &&
+      self instanceof WorkerGlobalScope // eslint-disable-line no-undef
+    ) {
       const worker = /** @type {*} */ (self);
       // Main thread needs to handle 'loadImage' and dispatch 'imageLoaded'
       worker.postMessage({
@@ -534,7 +537,28 @@ export function stylefunction(
                 typeof fillIcon === 'string'
                   ? fromTemplate(fillIcon, properties)
                   : fillIcon.toString();
-              if (spriteImage && spriteData && spriteData[icon]) {
+
+              let imageElement = getImage ? getImage(olLayer, icon) : undefined;
+              if (
+                imageElement instanceof HTMLImageElement &&
+                (!imageElement.complete || !imageElement.src)
+              ) {
+                // in the case of a not yet loaded HTML image, we can trigger the layer change, when loaded
+                const htmlImageElement = imageElement;
+                htmlImageElement.addEventListener('load', function load() {
+                  htmlImageElement.removeEventListener('load', load);
+                  olLayer.changed();
+                });
+                if (!htmlImageElement.src) {
+                  // can only draw image if already loaded (and width/height are known)
+                  imageElement = undefined;
+                }
+              }
+
+              if (
+                (spriteImage && spriteData && spriteData[icon]) ||
+                imageElement
+              ) {
                 ++stylesLength;
                 style = styles[stylesLength];
                 if (
@@ -553,27 +577,40 @@ export function stylefunction(
                 const icon_cache_key = icon + '.' + opacity;
                 let pattern = patternCache[icon_cache_key];
                 if (!pattern) {
-                  const spriteImageData = spriteData[icon];
-                  const canvas = createCanvas(
-                    spriteImageData.width,
-                    spriteImageData.height,
-                  );
-                  const ctx = /** @type {CanvasRenderingContext2D} */ (
-                    canvas.getContext('2d')
-                  );
-                  ctx.globalAlpha = opacity;
-                  ctx.drawImage(
-                    spriteImage,
-                    spriteImageData.x,
-                    spriteImageData.y,
-                    spriteImageData.width,
-                    spriteImageData.height,
-                    0,
-                    0,
-                    spriteImageData.width,
-                    spriteImageData.height,
-                  );
-                  pattern = ctx.createPattern(canvas, 'repeat');
+                  if (imageElement) {
+                    if (imageElement instanceof HTMLCanvasElement) {
+                      const ctx = /** @type {CanvasRenderingContext2D} */ (
+                        imageElement.getContext('2d')
+                      );
+                      pattern = ctx.createPattern(imageElement, 'repeat');
+                    } else if (imageElement instanceof HTMLImageElement) {
+                      pattern = {src: imageElement.src};
+                    } else {
+                      pattern = {src: imageElement};
+                    }
+                  } else {
+                    const spriteImageData = spriteData[icon];
+                    const canvas = createCanvas(
+                      spriteImageData.width,
+                      spriteImageData.height,
+                    );
+                    const ctx = /** @type {CanvasRenderingContext2D} */ (
+                      canvas.getContext('2d')
+                    );
+                    ctx.globalAlpha = opacity;
+                    ctx.drawImage(
+                      spriteImage,
+                      spriteImageData.x,
+                      spriteImageData.y,
+                      spriteImageData.width,
+                      spriteImageData.height,
+                      0,
+                      0,
+                      spriteImageData.width,
+                      spriteImageData.height,
+                    );
+                    pattern = ctx.createPattern(canvas, 'repeat');
+                  }
                   patternCache[icon_cache_key] = pattern;
                 }
                 fill.setColor(pattern);

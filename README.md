@@ -118,7 +118,7 @@ and open a browser on the host and port indicated in the console output (usually
 
 <a name="-internal-readmemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -139,7 +139,7 @@ and open a browser on the host and port indicated in the console output (usually
 
 <a name="-internal-interfacesapplystyleoptionsmd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -174,7 +174,7 @@ specified for the source in the mapbox style definition.
 
 <a name="-internal-interfacesfeatureidentifiermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -198,7 +198,7 @@ The source id.
 
 <a name="-internal-interfacesoptions-1md"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -449,7 +449,7 @@ method was used.
 
 <a name="-internal-interfacesoptionsmd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -555,7 +555,7 @@ web fonts when no `ol:webfonts` metadata is set in the style object. See `getFon
 
 <a name="-internal-type-aliasesresourcetypemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -567,11 +567,11 @@ web fonts when no `ol:webfonts` metadata is set in the style object. See `getFon
 
 <a name="readmemd"></a>
 
-**ol-mapbox-style** • **Docs**
+**@avinet/ol-mapbox-style** • **Docs**
 
 * * *
 
-## ol-mapbox-style
+## @avinet/ol-mapbox-style
 
 ### Modules
 
@@ -609,7 +609,7 @@ Renames and re-exports [apply](#functionsapplymd)
 
 <a name="classesmapboxvectorlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -691,7 +691,7 @@ must be provided.
 
 <a name="functionsaddmapboxlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -723,7 +723,7 @@ Resolves when the added layer is available.
 
 <a name="functionsapplymd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -797,7 +797,7 @@ argument.
 
 <a name="functionsapplybackgroundmd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -840,7 +840,7 @@ Promise that resolves when the background is applied.
 
 <a name="functionsapplystylemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -919,7 +919,7 @@ for rendering.
 
 <a name="functionsgetfeaturestatemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -950,7 +950,7 @@ feature identifier.
 
 <a name="functionsgetlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -980,7 +980,7 @@ OpenLayers layer instance.
 
 <a name="functionsgetlayersmd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1008,7 +1008,7 @@ OpenLayers layer instances.
 
 <a name="functionsgetmapboxlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1036,7 +1036,7 @@ Mapbox Layer object.
 
 <a name="functionsgetsourcemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1064,7 +1064,7 @@ OpenLayers source instance.
 
 <a name="functionsgetstyleforlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1100,7 +1100,7 @@ Styles for the provided Mapbox layer.
 
 <a name="functionsrecordstylelayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1124,7 +1124,7 @@ Recording of the style layer is on.
 
 <a name="functionsremovemapboxlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1150,7 +1150,7 @@ Mapbox Layer id or Mapbox Layer object.
 
 <a name="functionsrendertransparentmd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1176,7 +1176,7 @@ Default is `false`.
 
 <a name="functionssetfeaturestatemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1212,7 +1212,7 @@ Feature state. Set to `null` to remove the feature state.
 
 <a name="functionsstylefunctionmd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1319,7 +1319,7 @@ Style function for use in
 
 <a name="functionsupdatemapboxlayermd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 
@@ -1345,7 +1345,7 @@ Updated Mapbox Layer object.
 
 <a name="functionsupdatemapboxsourcemd"></a>
 
-[**ol-mapbox-style**](#readmemd) • **Docs**
+[**@avinet/ol-mapbox-style**](#readmemd) • **Docs**
 
 * * *
 

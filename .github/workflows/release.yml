@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - patch/*
 
 jobs:
   deploy:
@@ -17,14 +17,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@avinet"
 
       - name: Build
         run: |
           npm install
           npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+      - name: Publish production package to GitHub Packages
+        run: |
+          npm publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}

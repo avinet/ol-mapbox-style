@@ -1,0 +1,36 @@
+name: Publish package to GitHub Packages
+
+on:
+  push:
+    branches:
+      - patch/*
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+          cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@avinet'
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish production package to GitHub Packages
+        run: npm publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
